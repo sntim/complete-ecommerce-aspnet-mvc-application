@@ -1,5 +1,7 @@
 ﻿using eTickets.Data.Enum;
+using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
@@ -7,15 +9,14 @@ namespace eTickets.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ActorsController(AppDbContext context)
+        public ActorsController(AppDbContext context)    
         {
             _context = context;
 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Actors.ToList();
-            return View();
+             return View(await _context.Actors.ToListAsync());
         }
     }
 }
