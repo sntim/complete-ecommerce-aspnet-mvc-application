@@ -1,4 +1,6 @@
-﻿using eTickets.Data.Enum;
+﻿using AspNetCore;
+using eTickets.Data.Enum;
+using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,8 +16,7 @@ namespace eTickets.Controllers
         }
             public async Task<IActionResult> Index()
         {
-            var allProducers = await _context.Producers.ToListAsync();
-            return View();
+            return View(await _context.Producers.ToListAsync());
         }
     }
 }
