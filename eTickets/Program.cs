@@ -1,5 +1,6 @@
 using eTickets.Data;
 using eTickets.Data.Enum;
+using eTickets.Data.Services;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Dbcontext configuration
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+//Services configuration
+builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<IProducersService, ProducersService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
