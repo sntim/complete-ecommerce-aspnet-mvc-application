@@ -6,7 +6,7 @@ namespace eTickets.Models
     public class Producer: IEntityBase
     {
         [Key]
-        public int ProducerId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Profile Picture")]
 
@@ -19,7 +19,7 @@ namespace eTickets.Models
         public string Bio { get; set; }
 
         // IEntityBase implementation
-        public int Id { get; set; }  // This is required by IEntityBase
+        
 
 
         //Relationships
